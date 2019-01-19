@@ -16,16 +16,29 @@ public class SumEvenNumbers {
 
 		for (int i = 0; i < array.length; i++) {
 
-			System.out.println("Enter an even number");
-			
-			if ((scanner.nextInt() % 2 == 0)) {
+			boolean isEven;
 
-				int number = scanner.nextInt();
-				scanner.nextLine();
-				array[i] = number;
-			}
+			do {
+				System.out.println("Enter an even number");
+				if ((scanner.nextInt() % 2 == 0)) {
+
+					int number = scanner.nextInt();
+					scanner.nextLine();
+
+					isEven = true;
+
+					array[i] = number;
+
+				} else {
+					System.out.println("The number you entered is not even");
+					isEven = false;
+
+				}
+			} while (!(isEven));
 
 		}
+		
+		scanner.close();
 
 		int sum = sumEvenNumbers(array);
 		System.out.println("Sum of all even numbers is " + sum);
@@ -33,7 +46,7 @@ public class SumEvenNumbers {
 	}
 
 	public static int sumEvenNumbers(int[] array) {
-		
+
 		int sum = 0;
 		for (int i = 0; i < array.length; i++) {
 			sum = sum + array[i];
