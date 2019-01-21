@@ -7,10 +7,9 @@ public class SumEvenNumbers {
 	public static void main(String[] args) {
 
 		int size;
-		System.out.println("Please enter a number for Array range.");
+		System.out.println("Please enter a number for Array range");
 		Scanner scanner = new Scanner(System.in);
 		size = scanner.nextInt();
-		scanner.nextLine();
 
 		int[] array = new int[size];
 
@@ -20,9 +19,10 @@ public class SumEvenNumbers {
 
 			do {
 				System.out.println("Enter an even number");
-				if ((scanner.nextInt() % 2 == 0)) {
 
-					int number = scanner.nextInt();
+				int number = scanner.nextInt();
+				if (((number % 2) == 0)) {
+
 					scanner.nextLine();
 
 					isEven = true;
@@ -37,7 +37,7 @@ public class SumEvenNumbers {
 			} while (!(isEven));
 
 		}
-		
+
 		scanner.close();
 
 		int sum = sumEvenNumbers(array);
