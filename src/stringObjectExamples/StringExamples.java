@@ -12,7 +12,7 @@ public class StringExamples {
 		String string1 = input.nextLine();
 		String string2;
 
-		System.out.println("Please enter number between 0 and 3 and press enter...");
+		System.out.println("Please enter number between 0 and 4 and press enter...");
 
 		int numIndex = 0;
 
@@ -21,12 +21,12 @@ public class StringExamples {
 		// supposing the name input has at least 4 characters
 		do {
 			numIndex = input.nextInt();
-			if (numIndex >= 0 && numIndex <= 3) {
+			if (numIndex > 0 && numIndex < 4) {
 
 				isCorrect = true;
 
 			} else {
-				System.out.println("The number you entered is not between 0 and 3, try again...");
+				System.out.println("The number you entered is not between 0 and 4, try again...");
 
 				isCorrect = false;
 
@@ -34,7 +34,7 @@ public class StringExamples {
 		} while (!(isCorrect));
 
 		System.out.println("The character on the position no. " + numIndex + " of name " + string1 + " is " + "|"
-				+ string1.charAt(numIndex) + "|");
+				+ string1.charAt(numIndex - 1) + "|");
 
 		System.out.println("Please write another random name and press enter...");
 
