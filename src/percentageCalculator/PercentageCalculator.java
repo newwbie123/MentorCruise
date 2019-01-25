@@ -17,6 +17,7 @@ public class PercentageCalculator {
 				System.out.println("Please enter achieved exam points for the Student no. " + studentNo);
 
 				while (scanner.hasNextInt()) {
+					System.out.println("Please enter achieved exam points for the Student no. " + studentNo);
 					examPoints = scanner.nextInt();
 					double examMaxPoints = 150.0;
 					double percentageGrade = (examPoints / examMaxPoints) * 100;
