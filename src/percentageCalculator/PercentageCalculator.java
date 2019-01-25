@@ -1,5 +1,6 @@
 package percentageCalculator;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class PercentageCalculator {
@@ -10,32 +11,69 @@ public class PercentageCalculator {
 		Scanner scanner = new Scanner(System.in);
 		int examPoints = 0;
 		int studentNo = 1;
+		double examMaxPoints = 150.0;
 
-		try {
+		boolean loop = true;
 
-			for (int i = 0; i < grades.length; i++) {
-				System.out.println("Please enter achieved exam points for the Student no. " + studentNo);
+		while (loop) {
 
-				while (scanner.hasNextInt()) {
-					System.out.println("Please enter achieved exam points for the Student no. " + studentNo);
+			try {
+				for (int i = 0; i < grades.length; i++) {
+
+					System.out.println("Please enter achieved exam points of the Student no. " + studentNo);
 					examPoints = scanner.nextInt();
-					double examMaxPoints = 150.0;
+
 					double percentageGrade = (examPoints / examMaxPoints) * 100;
+					System.out.println("Student no. " + studentNo + " had " + percentageGrade + " %, evaluated status: ");
 
 					grades[i] = percentageGrade;
-					studentNo++;
 
-					System.out.println("The percentage for Student " + studentNo + " is " + percentageGrade);
-					
+					int finalGrade = (int) percentageGrade / 10;
+					switch (finalGrade) {
+
+					case 0:
+					case 1:
+					case 2:
+						System.out.println("Failed");
+						break;
+
+					case 3:
+					case 4:
+					case 5:
+						System.out.println("Good");
+						break;
+
+					case 6:
+					case 7:
+					case 8:
+						System.out.println("Very Good");
+						break;
+
+					case 9:
+					case 10:
+						System.out.println("Excellent");
+						break;
+
+					default:
+						System.out.println("Re-Evaluation needed");
+						break;
+
+					}
+
+					studentNo++;
+					loop = false;
 
 				}
+			} catch (Exception e) {
+
+				System.out.println("Invalid value, please enter a number...");
+				scanner.next();
+				loop = true;
 			}
 
-		} catch (Exception e) {
-
-			e.printStackTrace();
-		
 		}
+
+		System.out.println("Percentage achieved, for each Student: " + Arrays.toString(grades));
 
 		scanner.close();
 
