@@ -1,6 +1,7 @@
 package percentageCalculator;
 
 import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class PercentageCalculator {
@@ -64,7 +65,7 @@ public class PercentageCalculator {
 					loop = false;
 
 				}
-			} catch (Exception e) {
+			} catch (InputMismatchException exception) {
 
 				System.out.println("Invalid value, please enter a number...");
 				scanner.next();
