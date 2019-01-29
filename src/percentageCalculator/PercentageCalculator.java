@@ -8,61 +8,84 @@ public class PercentageCalculator {
 
 	public static void main(String[] args) {
 
-		double[] grades = new double[5];
 		Scanner scanner = new Scanner(System.in);
+
+		// created array of size 5
+
+		double[] grades = new double[5];
+
+		// initializing variables...
+
 		int examPoints = 0;
-		int studentNo = 1;
 		double examMaxPoints = 150.0;
+		int finalGrade = 0;
+		double percentageGrade = 0.0;
+
+		int studentNo = 1;
 
 		boolean loop = true;
 
 		while (loop) {
 
 			try {
+
 				for (int i = 0; i < grades.length; i++) {
 
 					System.out.println("Please enter achieved exam points of the Student no. " + studentNo);
+					
 					examPoints = scanner.nextInt();
 
-					double percentageGrade = (examPoints / examMaxPoints) * 100;
-					System.out.println("Student no. " + studentNo + " had " + percentageGrade + " %, evaluated status: ");
+					if (0 < examPoints && examPoints < 151) {
 
-					grades[i] = percentageGrade;
+						percentageGrade = (examPoints / examMaxPoints) * 100;
+						System.out.println(
+								"Student no. " + studentNo + " had " + percentageGrade + " %, evaluated status: ");
 
-					int finalGrade = (int) percentageGrade / 10;
-					switch (finalGrade) {
+						grades[i] = percentageGrade;
 
-					case 0:
-					case 1:
-					case 2:
-						System.out.println("Failed");
-						break;
+						finalGrade = (int) percentageGrade / 10;
 
-					case 3:
-					case 4:
-					case 5:
-						System.out.println("Good");
-						break;
+						switch (finalGrade) {
 
-					case 6:
-					case 7:
-					case 8:
-						System.out.println("Very Good");
-						break;
+						case 0:
+						case 1:
+						case 2:
+							System.out.println("Failed");
+							break;
 
-					case 9:
-					case 10:
-						System.out.println("Excellent");
-						break;
+						case 3:
+						case 4:
+						case 5:
+							System.out.println("Good");
+							break;
 
-					default:
-						System.out.println("Re-Evaluation needed");
-						break;
+						case 6:
+						case 7:
+						case 8:
+							System.out.println("Very Good");
+							break;
 
+						case 9:
+						case 10:
+							System.out.println("Excellent");
+							break;
+
+						default:
+							System.out.println("Re-Evaluation needed");
+							break;
+
+						}
+
+						studentNo++;
+
+						loop = false;
+
+						if (studentNo == 6) {
+							break;
+						}
+					} else {
+						System.out.println("Please enter the number between 0 (included) and 150 (included)...");
 					}
-
-					studentNo++;
-					loop = false;
 
 				}
 			} catch (InputMismatchException exception) {
