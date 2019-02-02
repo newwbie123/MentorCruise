@@ -1,10 +1,10 @@
-package sumEvenNumbers;
+package percentageCalculator;
 
 import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class SumEvenNumbers2 {
+public class PercentageCalculator2 {
 
 	public static void main(String[] args) {
 
