@@ -32,10 +32,10 @@ public class PercentageCalculator {
 				for (int i = 0; i < grades.length; i++) {
 
 					System.out.println("Please enter achieved exam points of the Student no. " + studentNo);
-					
+
 					examPoints = scanner.nextInt();
 
-					if (0 < examPoints && examPoints < 151) {
+					if (0 <= examPoints && examPoints < 151) {
 
 						percentageGrade = (examPoints / examMaxPoints) * 100;
 						System.out.println(
@@ -83,11 +83,14 @@ public class PercentageCalculator {
 						if (studentNo == 6) {
 							break;
 						}
+						
 					} else {
 						System.out.println("Please enter the number between 0 (included) and 150 (included)...");
+						
 					}
 
 				}
+
 			} catch (InputMismatchException exception) {
 
 				System.out.println("Invalid value, please enter a number...");
