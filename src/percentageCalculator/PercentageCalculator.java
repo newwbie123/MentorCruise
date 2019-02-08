@@ -5,6 +5,11 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class PercentageCalculator {
+	
+//	IMPORTANT
+//	This is non-functionable version; all the code is within if/else statement 
+//	which makes for loop reseting if user enters number lower than 0 or higher than 150
+//	correct code is PercentageCalculator 2
 
 	public static void main(String[] args) {
 
